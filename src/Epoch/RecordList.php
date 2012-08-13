@@ -8,7 +8,7 @@ abstract class RecordList extends \LimitIterator implements \Countable
     public $options = array('limit'=>-1, 'offset'=>0);
     
     /**
-     * Get the defualt options for the list class
+     * Get the default options for the list class
      * Required to set the following:
      *     $options['listClass'] the class of the list.
      *     $options['itemClass'] the class of each item in the list.
@@ -17,7 +17,7 @@ abstract class RecordList extends \LimitIterator implements \Countable
     abstract function getDefaultOptions();
     
     /*
-     * @param $options Requires Listclass and ItemClass to work properlly.
+     * @param $options Requires listClass and itemClass to work properly.
      * 
      *     listClass: The class name of the list.
      *     itemClass: The class name of the items in the list.
@@ -29,11 +29,11 @@ abstract class RecordList extends \LimitIterator implements \Countable
         $this->options = $this->options + $this->getDefaultOptions();
         
         if (!isset($this->options['listClass'])) {
-            Throw New Exception("No List Class was set", 500);
+            throw new Exception("No List Class was set", 500);
         }
         
         if (!isset($this->options['itemClass'])) {
-            Throw New Exception("No Item Class was set", 500);
+            throw new Exception("No Item Class was set", 500);
         }
         
         if (!isset($this->options['array'])) {
@@ -68,7 +68,7 @@ abstract class RecordList extends \LimitIterator implements \Countable
     public static function getBySql(array $options) {
         
         if (!isset($options['sql'])) {
-            throw new exception("options['sql'] was not set!", 500);
+            throw new Exception("options['sql'] was not set!", 500);
         }
         
         $mysqli           = \Epoch\Controller::getDB();
