@@ -46,7 +46,7 @@ abstract class RecordList extends \LimitIterator implements \Countable
         parent::__construct($list, $this->options['offset'], $this->options['limit']);
     }
     
-    private function getAllForConstructor()
+    protected function getAllForConstructor()
     {
         $class = new $this->options['itemClass'];
         $options['sql']         = "SELECT id FROM " . self::escapeString($class->getTable()) . "";
