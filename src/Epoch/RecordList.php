@@ -104,7 +104,7 @@ abstract class RecordList extends \LimitIterator implements \Countable
     function count()
     {
         $iterator = $this->getInnerIterator();
-        if ($iterator instanceof EmptyIterator) {
+        if ($iterator instanceof \EmptyIterator) {
             return 0;
         }
         
